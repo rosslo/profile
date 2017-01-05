@@ -1,0 +1,87 @@
+$(document).ready(function () {
+var startY = $('#part-1').offset().top; /*#part-1  .rocket-body-2'*/
+//var startY = $('.rocket-top').offset().top;
+$('html, body').animate({scrollTop: startY},1);
+wheelRight();
+var opendoor=false; //用來判斷是否以滾動過執行opendoor();
+var animated = true; //用來避免animate執行scroll的延遲
+var scrollRight = true; //scrollRight=true=>right, false=>down;
+function wheelRight(){
+   $("body").mousewheel(function(event, delta) {
+     //this.scrollLeft -= (delta * 50);
+     if(!opendoor){openDoor();}
+     else{
+	    var horizontalNum = $(".horizontal>li").length; //水平的part數量
+	    var vw100=$('body').width(); //100vw的值多少
+	    var cur = parseInt($('.horizontal').css('transform').split(',')[4]);
+	    var X=cur; //X軸將移動距離的儲存變數，初始為現在位置
+	    if(Math.abs(cur)%vw100===0 && scrollRight){ //判斷是否整個頁面滑動結束，避免連續滑動
+		    if(delta===-1 && (Math.abs(cur)/vw100<horizontalNum-1)){ //-1往下一頁 && 判斷時候是否最後一個part
+		      	X=cur-vw100;
+		      	if(Math.abs(cur)/vw100===horizontalNum-3){
+		      		console.log('hewe');
+		      		setTimeout(function(){
+		      			showSkills();
+				}, 1200);
+		      	}
+		      	if(Math.abs(cur)/vw100===horizontalNum-2){
+		      		setTimeout(function(){
+		      			infoMove();
+				}, 1200);
+		      	}
+		    }else if(delta===1 && cur<0){ //1往上一頁 && cur===0時，代表在第一個part
+		      	X=cur+vw100;
+		    }else if(delta===-1 && (Math.abs(cur)/vw100===horizontalNum-1)){  //-1往下一頁 && 已經在水平part的最後一個
+		    	scrollRight=false;
+		    }
+		    $('.horizontal').css('transform','translateX('+X+'px)');
+		    console.log($('#part-skills').offset().left);
+			console.log(Math.abs(cur));
+	    }
+		var vh100=$(window).height(); //100vh的值多少
+		var Y = $(window).scrollTop(); //Y軸將移動距離的儲存變數，初始為現在位置
+		if(!scrollRight&&animated){
+			if(delta===-1){
+				Y-=vh100;
+			}else if(delta===1 && Y!=startY){  //1往上一頁 && 不處於垂直part的最下面一個(載入起始位置startY)
+				Y+=vh100;
+			}else if(delta===1 && (Math.abs(cur)/vw100===horizontalNum-1)){  //1往上一頁 && 已經在水平part的最後一個
+		    	scrollRight=true;
+		    }
+			animated=false;
+			$('body').animate({scrollTop: Y}, 800, function(){
+				animated=true;
+				infoMove();
+			});
+		}
+      }
+      event.preventDefault();
+      return false;
+   });
+}
+function openDoor(){
+	var border = document.getElementsByClassName('border');
+	var door = document.getElementsByClassName('door');
+	var part1 = document.getElementById('part-1');
+	var part2 = document.getElementById('part-2');
+	$('.entrance').css("transform","scale(1.5)");
+	door[0].style.top="-80%";
+	door[1].style.top="70%";
+	part2.style.opacity="1";
+	setTimeout(function(){
+		$('.entrance').css("display","none");
+		opendoor=true;
+	}, 4000);
+}
+function infoMove(){
+	var index = $(window).scrollTop()/$(window).height()-1;
+	$('.info-box').eq(index).addClass('info-move');
+}
+function showSkills(){
+	$('.skill-level').each(function(){
+		var level = $(this).attr('data-level');
+		$(this).animate({width:level+"%"},800);
+		$(this).css("padding","3px 5px");
+	});
+}
+});

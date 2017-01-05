@@ -1,0 +1,645 @@
+* {
+	padding: 0;
+    margin: 0;
+    font-family: Microsoft JhengHei;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+html{
+	width: 100vw;
+	overflow-x: hidden;
+}
+.part{
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+#part-1{
+	background-color: #888;
+	overflow: hidden;
+}
+.entrance{
+	width: 100vw;
+	height: 100vh;
+	transition: transform 4s ease-in-out;
+	position: absolute;
+	top: 400%;
+	left: 0;
+}
+.entrance:before, .entrance:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 100vw;
+}
+.entrance:before{
+	top: 0;
+	left: 0;
+	height: 93vh;
+	background-image: repeating-linear-gradient(-90deg, #555, #555 2px, transparent 2px, transparent 60px),
+					  repeating-linear-gradient(0deg, #555, #555 2px, transparent 2px, transparent 60px);
+}
+.entrance:after{
+	bottom: 0;
+	left: 0;
+	height: 7vh;
+	background-image: repeating-linear-gradient(-40deg, #555, #555 2px, transparent 2px, transparent 45px),
+					  repeating-linear-gradient(0deg, #555, #555 2px, transparent 2px, transparent 45px);
+}
+.border{
+	overflow: hidden;
+	width: 70%;
+    height: 500px;
+    background-color: #AFEEEE;
+    position: absolute;
+    bottom: 7vh;
+    left: calc(15% - 20px);
+    border:20px solid transparent;
+	border-image-source: url(border.png);
+	border-image-slice:100;
+	border-image-repeat: stretch;
+	border-bottom: none;
+}
+.door{
+	margin-left: -1px;
+	position: relative;
+	top: 0px;
+	transition: top 3.5s ease-in;
+	width: 100%;
+	height: 50%;
+	background-color: #333;
+	border: 1px solid #000;
+	overflow: hidden;
+}
+.door .head{
+	width: 100%;
+	text-align: center;
+	color: #ccc;
+	font-size: 4.5em;
+	position: absolute;
+}
+.head.-top{
+	bottom: -0.6em;
+}
+.head.-bottom{
+	top: -0.8em;
+}
+#part-2{
+	opacity:0;
+	transition-delay: 2.3s;
+	transition-property:opacity;
+	transition-duration:1.7s;
+}
+.boy{
+	position: absolute;
+	left: calc(25vw - 168px);
+	top: 20px;
+	background: url(boy.png) no-repeat;
+	background-position: -0px -0px;
+	width: 335px; height: 571px;
+	animation-name: person-wave;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, start);
+}
+@keyframes person-wave {
+    0% {
+        background-position: -0px -0px;
+    }
+    10% {
+        background-position: -0px -571px;
+    }
+    20% {
+        background-position: -0px -0px;
+    }
+    30% {
+        background-position: -0px -571px;
+    }
+    40% {
+        background-position: -0px -0px;
+    }
+    60% {
+        background-position: -0px -571px;
+    }
+    80% {
+        background-position: -0px -571px;
+    }
+    100% {
+        background-position: -0px -571px;
+    }
+}
+.box h1{
+	line-height: 2em;
+}
+.box{
+	width: 40vw;
+	height: 70vh;
+	position: absolute;
+	right: 10vw;
+	top: 20vh;
+	border: 10px solid #777;
+	background-color: #444;
+	color: #fff;
+	padding: 40px;
+	text-align: left;
+	box-sizing:border-box;
+}
+.box:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 110px;
+	height: 30px;
+	border-top-left-radius:55px 30px;
+	border-top-right-radius:55px 30px;
+	top: -40px;
+	left: calc(20vw - 55px);
+	background-color: #444;
+}
+.box:before{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 40px;
+	height: 20vh;
+	top: calc(-20vh - 10px);
+	left: calc(20vw - 20px);
+	background-image: repeating-linear-gradient(0deg, #777, #777 2px, #444 2px, #444 15px);
+	/*background: url(chain-block.png) no-repeat top center;*/
+}
+.horizontal{
+	position: absolute;
+	top: 400%;
+	left: 0;
+	width: 600vw; /*5個part的寬度*/
+	transition: transform 1.2s linear;
+	transform: translateX(0);
+}
+.horizontal li.part{
+	list-style: none;
+	float: left;
+	width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.part.laboratory{ /*實驗室的背景設定*/
+	position: relative;
+	z-index: 1;
+	background-color: #AFEEEE;
+}
+.part.laboratory:before, .part.laboratory:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 100vw;
+	z-index: -1;
+}
+.part.laboratory:before{
+	top: 0;
+	left: 0;
+	height: 75vh;
+	background-image: repeating-linear-gradient(-90deg, #fff, #fff 2px, transparent 2px, transparent 60px),
+					  repeating-linear-gradient(0deg, #fff, #fff 2px, transparent 2px, transparent 60px);
+}
+.part.laboratory:after{
+	bottom: 0;
+	left: 0;
+	height: 25vh;
+	background-image: repeating-linear-gradient(-40deg, #fff, #fff 2px, transparent 2px, transparent 45px),
+					  repeating-linear-gradient(0deg, #fff, #fff 2px, transparent 2px, transparent 45px);
+}
+.skills-machine{
+	width: 80vw;
+	height: 85vh;
+	background-color: #777;
+	padding: 5vh 0.5vw 0vh 1vw;
+	margin: 0 auto;
+	box-shadow:1px -2px 0px #555,2px -3px 0px #555,3px -4px 0px #555,4px -5px 0px #555,5px -6px 0px #555,6px -7px 0px #555,7px -8px 0px #555,8px -9px 0px #555,9px -10px 0px #555;
+	position: relative;
+	box-sizing: border-box;
+	top: 5vh;
+}
+/*.skills-screen{
+	width: 75vw;
+	height: 45vh;
+	margin: 0 auto;
+}*/
+.skill-title {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 3px solid #ccc;
+  color: #fff;
+}
+.skill-list{
+  float: left;
+  width: 19.1vw; /*total:75vw*/
+  margin-right: 0.5vw;
+  height: 47vh;
+  padding: 1em;
+  text-align: left;
+  list-style: none;
+  box-sizing: border-box;
+  background-color: #333;
+}
+.skill-level {
+  width: 0;
+  color: #fff;
+  font-size: 1.1em;
+  margin-top: 10px;
+  height: 1.7em;
+  overflow: hidden;
+  background-color: #d84f5f;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*@keyframes rect-100 {
+  from {width: 0%;}to {width: 100%;}
+}
+@keyframes rect-75 {
+  from {width: 0%;}to {width: 75%;}
+}
+@keyframes rect-50 {
+  from {width: 0%;}to {width: 50%;}
+}
+@keyframes rect-35 {
+  from {width: 0%;}to {width: 35%;}
+}
+@keyframes rect-25 {
+  from {width: 0%;}to {width: 25%;}
+}
+.percent75 {
+  animation: rect-75 2s forwards;
+}
+.percent50 {
+  animation: rect-50 2s forwards;
+}
+.percent35 {
+  animation: rect-35 2s forwards;
+}
+.percent25 {
+  animation: rect-25 2s forwards;
+}
+.percent100 {
+  animation: rect-100 2s forwards;
+}*/
+.btn-group .skills-btn{
+	float: left;
+	list-style: none;
+	margin-right: 0.5vw;
+	margin-top: 3vh;
+	width: 19.1vw;
+	height: 25vh;
+	background-color: #333;
+	box-sizing: border-box;
+}
+/*#skill-1{
+	background-color: rgb(69,101,128);
+	border: 5px solid #333;
+	border-radius: 3px;
+	background-image: repeating-linear-gradient(-90deg, transparent, transparent 19%, #333 19%, #333 21%),
+					  repeating-linear-gradient(0deg, transparent, transparent 19%, #333 19%, #333 21%);
+	animation-name: lightup-btn;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes lightup-btn{
+	0%{
+		background-color: rgb(237,32,63);
+	}
+	100%{
+		background-color: red;
+	}
+}
+#skill-2{
+	border: 5px solid #333;
+	background-color: #777;
+}
+#skill-2:before, #skill-2:after{
+	content: "";
+	display: block;
+	width: 7vw;
+	height: 15vh;
+	border: 5px solid #333;
+	margin-top: 3vh;
+}
+#skill-2:before{
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+	background-color: rgb(69,101,128);
+	float: left;
+	margin-left: 0.5vw;
+}
+#skill-2:after{
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+	background-color: rgb(69,101,128);
+	float: right;
+	margin-right: 0.5vw;
+}
+#skill-3{
+	border: 5px solid #333;
+	background-color: #777;
+}
+#skill-3:before{
+	content: "";
+	display: block;
+	margin: 2.5vh auto 0;
+	width: 20vh;
+	height: 20vh;
+	border-radius: 50%;
+	background-color: #777;
+	border: 5px solid #333;
+	box-sizing:border-box;
+	animation-name: tempColor-change;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+	animation-fill-mode: forwards;
+}*/
+/*@keyframes tempColor-change{
+	0%{
+		background-color: green;
+	}
+	20%{
+		background-color: orange;
+	}
+	70%{
+		background-color: rgb(236,32,39);
+	}
+	100%{
+		background-color: rgb(236,32,39);
+	}
+}
+#skill-3:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	margin: calc(-10vh - 50px) auto 0;
+	border-style: solid;
+	border-width: 0 10px 50px 10px;
+	border-radius: 50%;
+	border-color: transparent transparent #333 transparent;
+	transform: rotate(-90deg);
+	transform-origin:50% 100%;
+	animation-name: pointer-rotate;
+    animation-duration: 4000ms;
+/*    animation-iteration-count: infinite;
+    animation-direction: alternate;*/
+    animation-fill-mode: forwards;
+}
+@keyframes pointer-rotate{
+	0%{
+		transform: rotate(-90deg);
+	}
+	20%{
+		transform: rotate(0deg);
+	}
+	40%{
+		transform: rotate(45deg);
+	}
+	60%{
+		transform: rotate(90deg);
+	}
+	80%{
+		transform: rotate(60deg);
+	}
+	100%{
+		transform: rotate(60deg);
+	}
+}*/
+#skill-4{
+	border: 5px solid #333;
+	background-color: #333;
+
+}
+#skill-4:before{
+	content: "";
+	display: block;
+	width: 90%;
+	height: 25vh;
+	margin: 0 auto;
+	background-image: repeating-linear-gradient(0deg, transparent, transparent 12%, #777 12%, #777 15%);
+}
+.vertical{
+	width: 100vw;
+}
+.vertical>li.part{
+	width: 100vw;
+    height: 100vh;
+}
+.factory{  /*作品集停放火箭工廠的背景設定*/
+	background-color: #777;
+	background-image: url(factory.png);
+	position: relative;
+	z-index: 0;
+}
+.rocket-body-1:before, .rocket-body-2:before, .rocket-top:before, .rocket-bottom:before{ /*before 用於火箭較大的底色主體*/
+	content: "";
+	position: absolute;
+	display: block;
+	width: 25%;
+	left: 37.5%;
+    background-image: linear-gradient(to right, #dedede 70%,#b8bac6 100%);
+	border: 5px solid #333;
+	border-top: 0px;
+	box-sizing: border-box;
+	z-index: 1;
+}
+.rocket-body-1:before, .rocket-body-2:before{
+	height: 100vh;
+	top: 0;
+}
+.rocket-top:before{
+	height: 65vh;
+	bottom: 0;
+	border-top: 5px solid #333;
+}
+.rocket-bottom:before{
+	height: 75vh;
+}
+.rocket-top:after, .rocket-bottom:after, .rocket-body-1:after, .rocket-body-2:after{
+	content: "";
+	position: absolute;
+	display: block;
+	width: 25%;
+	height: 25vh;
+	left: 37.5%;
+	box-sizing: border-box;
+}
+.rocket-top:after{  /*火箭頭製作三角形*/
+	top: 0;
+	z-index: 2;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 12.5vw 35vh 12.5vw;
+	border-color: transparent transparent rgb(236,32,39) transparent;
+}
+.rocket-body-1:after{
+	top: 0;
+	z-index: 2;
+	background-image: repeating-linear-gradient(-180deg, rgb(236,32,39) , rgb(236,32,39)  20px, transparent 20px, transparent 40px);
+	border-left: 5px solid #333;
+	border-right: 5px solid #333;
+}
+.rocket-body-2:after{
+	border: 5px solid #333;
+	border-top: 0;
+/*  border-bottom-left-radius: 50% 30px;
+  border-bottom-right-radius: 50% 30px;*/
+	top: 0;
+	z-index: 2;
+	background-image: repeating-linear-gradient(-90deg, #333 , #333 5px, rgb(236,32,39)  5px, rgb(236,32,39)  20px);
+}
+.rocket-bottom:after{
+	border: 5px solid #333;
+	border-top: 0;
+	height: 18vh;
+	top: 75vh;
+	background-image: repeating-linear-gradient(-90deg, #333 , #333 5px, #777 5px, #777 20px);
+}
+.space{
+	background: url(space.jpg) no-repeat center;
+	-moz-background-size:100%;
+	-webkit-background-size:100%;
+	-o-background-size:100%;
+	background-size:100%;
+}
+.work{
+	position: absolute;
+	top: 40%;
+	left: 41%;
+	width: 18vw;
+	height: 18vw;
+	background-color: #fff;
+	border: 5px solid #333;
+	z-index: 3;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.work img{
+	width: 100%;
+	height: auto;
+	transition: all 0.3s ease;
+}
+.work-link:hover img {
+  transform: scale(1.2);
+  -webkit-filter: brightness(0.3);
+}
+.rocket-top .work{
+	top: 45%;
+}
+.rocket-bottom .work{
+	top: 20%;
+}
+.work.-circle{
+	border-radius: 50%;
+}
+.iron{
+	position: absolute;
+	top: 0;
+	left: 14%;
+	height: 100vh;
+	width: 15vw;
+	background-image: url(iron-2.png);
+	background-size: 15vw;
+}
+/*.iron.-top{
+	width: 30vw;
+	background-image: url(iron-2.png), url(iron-2.png);
+	background-position: 0px bottom, 0px calc(100vh - 27.12vw);
+	background-repeat: no-repeat;
+}*/
+.fire{
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7vw 20vh 7vw;
+	border-color: transparent transparent #333 transparent;
+}
+.fire.-left{
+	left: 35%;
+}
+.fire.-right{
+	left: 51%;
+}
+.info-box{
+	width: 25vw;
+	height: 70vh;
+	position: absolute;
+	right: -30vw;
+	top: 15vh;
+	border: 20px solid rgb(89,138,170);
+	background-color: rgb(69,101,128);
+	color: #fff;
+	padding: 2em;
+	text-align: left;
+	box-sizing:border-box;
+}
+.info-box:before, .info-box:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 10vw;
+	height: 40px;
+	background: repeating-linear-gradient(-90deg, rgb(89,138,170) , rgb(89,138,170) 5px, rgb(69,101,128)  5px, rgb(69,101,128)  20px);
+	right: -10vw;
+	box-sizing:border-box;
+	z-index: -1;
+}
+.info-box:before{
+	top: 16vh;
+}
+.info-box:after{
+	bottom: 16vh;
+}
+.info-move{
+	animation-name: info-move;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes info-move{
+    0% {
+        right: -30vw;
+    }
+    100% {
+        right: 5vw;
+    }
+}
+.name{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.info, .skills{
+	line-height: 1.5em;
+	font-size: 1.2em;
+	padding-left: 1.2em;
+	padding-top: 1.2em;
+}
+.info i{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: url(images/caution-sign.png) no-repeat 0px 1px;
+	background-size: 1em;
+	margin-left: -1.2em;
+	margin-right: 2px;
+}
+.skills .icon{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: url(images/construction-hammer-.png) no-repeat 0px 1px;
+	background-size: 1em;
+	margin-left: -1.2em;
+	margin-right: 2px;
+}
