@@ -1,7 +1,7 @@
 * {
 	padding: 0;
     margin: 0;
-    font-family: Microsoft JhengHei;
+    font-family: 'Varela Round', Microsoft JhengHei,sans-serif;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -58,7 +58,7 @@ html{
     bottom: 7vh;
     left: calc(15% - 20px);
     border:20px solid transparent;
-	border-image-source: url(border.png);
+	border-image-source: url(images/border.png);
 	border-image-slice:100;
 	border-image-repeat: stretch;
 	border-bottom: none;
@@ -80,12 +80,43 @@ html{
 	color: #ccc;
 	font-size: 4.5em;
 	position: absolute;
+	font-family: 'Orbitron';
+}
+.tip{
+	width: 100%;
+	text-align: center;
+	font-size: 2em;
+	color: #fff;
+	position: absolute;
+	bottom: 0.5em;
+	opacity: 1;
+	animation-name: twinkle;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, start);
+}
+@keyframes twinkle{
+	0%{
+		opacity: 1;
+	}
+	25%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	75%{
+		opacity: 0;
+	}
+	100%{
+		opacity: ;
+	}
 }
 .head.-top{
 	bottom: -0.6em;
 }
 .head.-bottom{
-	top: -0.8em;
+	top: -0.7em;
 }
 #part-2{
 	opacity:0;
@@ -97,7 +128,7 @@ html{
 	position: absolute;
 	left: calc(25vw - 168px);
 	top: 20px;
-	background: url(boy.png) no-repeat;
+	background: url(images/boy.png) no-repeat;
 	background-position: -0px -0px;
 	width: 335px; height: 571px;
 	animation-name: person-wave;
@@ -139,7 +170,7 @@ html{
 	height: 70vh;
 	position: absolute;
 	right: 10vw;
-	top: 20vh;
+	top: -70vh;
 	border: 10px solid #777;
 	background-color: #444;
 	color: #fff;
@@ -168,7 +199,20 @@ html{
 	top: calc(-20vh - 10px);
 	left: calc(20vw - 20px);
 	background-image: repeating-linear-gradient(0deg, #777, #777 2px, #444 2px, #444 15px);
-	/*background: url(chain-block.png) no-repeat top center;*/
+}
+.box-remove{
+	animation-name: box-remove;
+    animation-duration: 1000ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+}
+@keyframes box-remove{
+	from{
+		top: -70vh;
+	}
+	to{
+		top: 20vh;
+	}
 }
 .horizontal{
 	position: absolute;
@@ -222,11 +266,6 @@ html{
 	box-sizing: border-box;
 	top: 5vh;
 }
-/*.skills-screen{
-	width: 75vw;
-	height: 45vh;
-	margin: 0 auto;
-}*/
 .skill-title {
   font-size: 24px;
   font-weight: bold;
@@ -250,42 +289,13 @@ html{
   font-size: 1.1em;
   margin-top: 10px;
   height: 1.7em;
+  line-height: 1.7em;
   overflow: hidden;
   background-color: #d84f5f;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/*@keyframes rect-100 {
-  from {width: 0%;}to {width: 100%;}
-}
-@keyframes rect-75 {
-  from {width: 0%;}to {width: 75%;}
-}
-@keyframes rect-50 {
-  from {width: 0%;}to {width: 50%;}
-}
-@keyframes rect-35 {
-  from {width: 0%;}to {width: 35%;}
-}
-@keyframes rect-25 {
-  from {width: 0%;}to {width: 25%;}
-}
-.percent75 {
-  animation: rect-75 2s forwards;
-}
-.percent50 {
-  animation: rect-50 2s forwards;
-}
-.percent35 {
-  animation: rect-35 2s forwards;
-}
-.percent25 {
-  animation: rect-25 2s forwards;
-}
-.percent100 {
-  animation: rect-100 2s forwards;
-}*/
 .btn-group .skills-btn{
 	float: left;
 	list-style: none;
@@ -296,127 +306,9 @@ html{
 	background-color: #333;
 	box-sizing: border-box;
 }
-/*#skill-1{
-	background-color: rgb(69,101,128);
-	border: 5px solid #333;
-	border-radius: 3px;
-	background-image: repeating-linear-gradient(-90deg, transparent, transparent 19%, #333 19%, #333 21%),
-					  repeating-linear-gradient(0deg, transparent, transparent 19%, #333 19%, #333 21%);
-	animation-name: lightup-btn;
-    animation-duration: 1000ms;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-@keyframes lightup-btn{
-	0%{
-		background-color: rgb(237,32,63);
-	}
-	100%{
-		background-color: red;
-	}
-}
-#skill-2{
-	border: 5px solid #333;
-	background-color: #777;
-}
-#skill-2:before, #skill-2:after{
-	content: "";
-	display: block;
-	width: 7vw;
-	height: 15vh;
-	border: 5px solid #333;
-	margin-top: 3vh;
-}
-#skill-2:before{
-	border-top-left-radius: 50%;
-	border-bottom-left-radius: 50%;
-	background-color: rgb(69,101,128);
-	float: left;
-	margin-left: 0.5vw;
-}
-#skill-2:after{
-	border-top-right-radius: 50%;
-	border-bottom-right-radius: 50%;
-	background-color: rgb(69,101,128);
-	float: right;
-	margin-right: 0.5vw;
-}
-#skill-3{
-	border: 5px solid #333;
-	background-color: #777;
-}
-#skill-3:before{
-	content: "";
-	display: block;
-	margin: 2.5vh auto 0;
-	width: 20vh;
-	height: 20vh;
-	border-radius: 50%;
-	background-color: #777;
-	border: 5px solid #333;
-	box-sizing:border-box;
-	animation-name: tempColor-change;
-    animation-duration: 4000ms;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-	animation-fill-mode: forwards;
-}*/
-/*@keyframes tempColor-change{
-	0%{
-		background-color: green;
-	}
-	20%{
-		background-color: orange;
-	}
-	70%{
-		background-color: rgb(236,32,39);
-	}
-	100%{
-		background-color: rgb(236,32,39);
-	}
-}
-#skill-3:after{
-	content: "";
-	display: block;
-	width: 0;
-	height: 0;
-	margin: calc(-10vh - 50px) auto 0;
-	border-style: solid;
-	border-width: 0 10px 50px 10px;
-	border-radius: 50%;
-	border-color: transparent transparent #333 transparent;
-	transform: rotate(-90deg);
-	transform-origin:50% 100%;
-	animation-name: pointer-rotate;
-    animation-duration: 4000ms;
-/*    animation-iteration-count: infinite;
-    animation-direction: alternate;*/
-    animation-fill-mode: forwards;
-}
-@keyframes pointer-rotate{
-	0%{
-		transform: rotate(-90deg);
-	}
-	20%{
-		transform: rotate(0deg);
-	}
-	40%{
-		transform: rotate(45deg);
-	}
-	60%{
-		transform: rotate(90deg);
-	}
-	80%{
-		transform: rotate(60deg);
-	}
-	100%{
-		transform: rotate(60deg);
-	}
-}*/
 #skill-4{
 	border: 5px solid #333;
 	background-color: #333;
-
 }
 #skill-4:before{
 	content: "";
@@ -435,7 +327,7 @@ html{
 }
 .factory{  /*作品集停放火箭工廠的背景設定*/
 	background-color: #777;
-	background-image: url(factory.png);
+	background-image: url(images/factory.png);
 	position: relative;
 	z-index: 0;
 }
@@ -505,11 +397,70 @@ html{
 	background-image: repeating-linear-gradient(-90deg, #333 , #333 5px, #777 5px, #777 20px);
 }
 .space{
-	background: url(space.jpg) no-repeat center;
-	-moz-background-size:100%;
-	-webkit-background-size:100%;
-	-o-background-size:100%;
-	background-size:100%;
+	background-image: url(images/earth.png), url(images/space.png);
+	background-repeat: no-repeat, repeat-x;
+	background-position: left bottom, left;
+	background-size:20% auto, auto 100%;
+}
+.contact-box{
+	position: absolute;
+	padding-top: 35vh;
+	height: 100%;
+	width: 50%;
+	box-sizing: border-box;
+	top: 10px;
+	right: 0;
+	background-image: url(images/moon.png);
+	background-repeat: no-repeat;
+	background-size: auto 90%;
+	background-position: center top;
+}
+.contact-title{
+	font-weight: normal;
+	font-family: 'Pacifico', cursive;
+	font-size: 3.8em;
+	opacity: 0;
+	transition-delay: 1.5s;
+	transition-property:opacity;
+	transition-duration:1.5s;
+}
+.contact-item{
+	display: inline-block;
+	list-style: none;
+	font-size: 1.5em;
+	line-height: 2em;
+	padding-left: 1.6em;
+	background: url(images/gmail.png) no-repeat left center;
+	background-size: 1.5em;
+	opacity: 0;
+	transition-delay: 1.5s;
+	transition-property:opacity;
+	transition-duration:1.5s;
+}
+.rocket{
+	position: absolute;
+	left: 10%;
+	bottom: 50px;
+	transform: rotate(60deg) scale(0.1);
+	transform-origin: 50% 100%;
+}
+.rocket-move{
+	animation-name: rocket-move;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+@keyframes rocket-move{
+	0%{
+		left: 70px;
+		bottom: 10px;
+		transform: rotate(60deg) scale(0.1);
+	}
+	100%{
+		left: 257px;
+		bottom: 120px;
+		transform: rotate(60deg) scale(1);
+	}
 }
 .work{
 	position: absolute;
@@ -547,15 +498,9 @@ html{
 	left: 14%;
 	height: 100vh;
 	width: 15vw;
-	background-image: url(iron-2.png);
+	background-image: url(images/iron-2.png);
 	background-size: 15vw;
 }
-/*.iron.-top{
-	width: 30vw;
-	background-image: url(iron-2.png), url(iron-2.png);
-	background-position: 0px bottom, 0px calc(100vh - 27.12vw);
-	background-repeat: no-repeat;
-}*/
 .fire{
 	position: absolute;
 	bottom: 0;
