@@ -1,12 +1,21 @@
-$(document).ready(function () {
+$(document).ready(function(){
 var startY = $('#part-1').offset().top; /*#part-1  .rocket-body-2'*/
 $('html, body').animate({scrollTop: startY},1);
-wheelRight();
+//wheelRight();
 var opendoor=false; //用來判斷是否以滾動過執行opendoor();
 var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
-function wheelRight(){
-   $("body").mousewheel(function(event, delta) {
+if(window.screen.availHeight>window.screen.availWidth){
+	$("body").on("swiperight",wheelRight(-1));
+	$("body").on("swipeleft",wheelRight(1));
+}
+$("body").mousewheel(function(event, delta) {
+	wheelRight(delta);
+	event.preventDefault();
+    return false;
+});
+function wheelRight(delta){
+   //$("body").mousewheel(function(event, delta) {
      //this.scrollLeft -= (delta * 50);
      if(!opendoor){openDoor();}
      else{
@@ -18,7 +27,6 @@ function wheelRight(){
 		    if(delta===-1 && (Math.abs(cur)/vw100<horizontalNum-1)){ //-1往下一頁 && 判斷時候是否最後一個part
 		      	X=cur-vw100;
 		      	if(Math.abs(cur)/vw100===horizontalNum-3){
-		      		console.log('hewe');
 		      		setTimeout(function(){
 		      			showSkills();
 				}, 1200);
@@ -34,8 +42,6 @@ function wheelRight(){
 		    	scrollRight=false;
 		    }
 		    $('.horizontal').css('transform','translateX('+X+'px)');
-		    console.log($('#part-skills').offset().left);
-			console.log(Math.abs(cur));
 	    }
 		var vh100=$(window).height(); //100vh的值多少
 		var Y = $(window).scrollTop(); //Y軸將移動距離的儲存變數，初始為現在位置
@@ -46,9 +52,10 @@ function wheelRight(){
 				Y+=vh100;
 			}else if(delta===1 && (Math.abs(cur)/vw100===horizontalNum-1)){  //1往上一頁 && 已經在水平part的最後一個
 		    	scrollRight=true;
+		    	console.log('you want left');
 		    }
 			animated=false;
-			$('body').animate({scrollTop: Y}, 800, function(){
+			$('html,body').animate({scrollTop: Y}, 800, function(){
 				animated=true;
 				infoMove();
 				if(Y===0){
@@ -58,9 +65,7 @@ function wheelRight(){
 			});
 		}
       }
-      event.preventDefault();
-      return false;
-   });
+ //  });
 }
 function openDoor(){
 	var border = document.getElementsByClassName('border');
@@ -82,11 +87,26 @@ function openDoor(){
 }
 function infoMove(){
 	var index = $(window).scrollTop()/$(window).height()-1;
-	$('.info-box').eq(index).addClass('info-move');
+	if(window.screen.availHeight>window.screen.availWidth){
+		if(index===3){
+			$('.info-box').eq(3).addClass('info-less-move');
+		}else if(index===1){
+			$('.info-box').eq(1).addClass('info-less-move');
+		}
+		else{
+			$('.info-box').eq(index).addClass('info-move');
+		}
+	}else{
+		$('.info-box').eq(index).addClass('info-move');
+	}
 }
 function showSkills(){
 	$('.skill-level').each(function(){
 		var level = $(this).attr('data-level');
+		if(window.screen.availHeight>window.screen.availWidth){
+			level = level / 2;
+			$(this).css("margin-right",50-level+"%");
+		}
 		$(this).animate({width:level+"%"},800);
 		$(this).css("padding-left","5px");
 	});

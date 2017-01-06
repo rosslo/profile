@@ -1,0 +1,597 @@
+* {
+	padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', Microsoft JhengHei,sans-serif;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+html{
+	font-size: 5px;
+	width: 100vw;
+	overflow: -moz-scrollbars-none;
+}
+.part{
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+#part-1{
+	background-color: #888;
+	overflow: hidden;
+}
+.entrance{
+	width: 100vw;
+	height: 100vh;
+	transition: transform 4s ease-in-out;
+	position: absolute;
+	top: 400%;
+	left: 0;
+	background-color: #888;
+}
+.entrance:before, .entrance:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 100vw;
+}
+.entrance:before{
+	top: 0;
+	left: 0;
+	height: 93vh;
+	background-image: repeating-linear-gradient(-90deg, #555, #555 2px, transparent 2px, transparent 60px),
+					  repeating-linear-gradient(0deg, #555, #555 2px, transparent 2px, transparent 60px);
+}
+.entrance:after{
+	bottom: 0;
+	left: 0;
+	height: 7vh;
+	background-image: repeating-linear-gradient(-40deg, #555, #555 2px, transparent 2px, transparent 45px),
+					  repeating-linear-gradient(0deg, #555, #555 2px, transparent 2px, transparent 45px);
+}
+.border{
+	overflow: hidden;
+	width: 70%;
+    height: 80%;
+    background-color: #AFEEEE;
+    position: absolute;
+    bottom: 7vh;
+    left: calc(15% - 20px);
+    border:20px solid transparent;
+	border-image-source: url(images/border.png);
+	border-image-slice:100;
+	border-image-repeat: stretch;
+	border-bottom: none;
+}
+.door{
+	margin-left: -1px;
+	position: relative;
+	top: 0px;
+	transition: top 3.5s ease-in;
+	width: 100%;
+	height: 50%;
+	background-color: #333;
+	border: 1px solid #000;
+	overflow: hidden;
+}
+.door .head{
+	width: 100%;
+	text-align: center;
+	color: #ccc;
+	font-size: 4.5rem;
+	position: absolute;
+	font-family: 'Orbitron';
+}
+.tip{
+	width: 100%;
+	text-align: center;
+	font-size: 3rem;
+	color: #fff;
+	position: absolute;
+	bottom: 0.5rem;
+	opacity: 1;
+	animation-name: twinkle;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, start);
+}
+@keyframes twinkle{
+	0%{
+		opacity: 1;
+	}
+	25%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	75%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.head.-higher-top{
+	bottom: 5px;
+}
+.head.-wider-top, .head.-wider-bottom{
+	display: none;
+}
+#part-2{
+	opacity:0;
+	transition-delay: 2.3s;
+	transition-property:opacity;
+	transition-duration:1.7s;
+}
+.boy{
+	position: absolute;
+	z-index: 2;
+	left: 20px;
+	top: 50vh;
+	background: url(images/boy.png) no-repeat;
+	background-position: -0px -0px;
+	width: 50vw; height: 85.22vw;
+	background-size: 50vw auto;
+	animation-name: person-wave;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, start);
+}
+@keyframes person-wave {
+    0% {
+        background-position: -0px -0px;
+    }
+    10% {
+        background-position: -0px -85.22vw;
+    }
+    20% {
+        background-position: -0px -0px;
+    }
+    30% {
+        background-position: -0px -85.22vw;
+    }
+    40% {
+        background-position: -0px -0px;
+    }
+    60% {
+        background-position: -0px -85.22vw;
+    }
+    80% {
+        background-position: -0px -85.22vw;
+    }
+    100% {
+        background-position: -0px -85.22vw;
+    }
+}
+.box h1{
+	font-size: 4rem;
+}
+.wider-intro{
+	display: none;
+}
+.box{
+	width: 80vw;
+	height: 50vh;
+	position: absolute;
+	left: 10vw;
+	top: -50vh;
+	border: 10px solid #777;
+	background-color: #444;
+	color: #fff;
+	padding: 1rem;
+	text-align: left;
+	box-sizing:border-box;
+	z-index: 1;
+}
+.box:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 80px;
+	height: 20px;
+	border-top-left-radius:50px 20px;
+	border-top-right-radius:50px 20px;
+	top: -30px;
+	left: calc(40vw - 55px);
+	background-color: #444;
+}
+.box:before{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 40px;
+	height: 20vh;
+	top: calc(-20vh - 10px);
+	left: calc(40vw - 35px);
+	background-image: repeating-linear-gradient(0deg, #777, #777 2px, #444 2px, #444 15px);
+}
+.box-remove{
+	animation-name: box-remove;
+    animation-duration: 1000ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+}
+@keyframes box-remove{
+	from{
+		top: -70vh;
+	}
+	to{
+		top: 19vh;
+	}
+}
+.horizontal{
+	position: absolute;
+	top: 400%;
+	left: 0;
+	width: 600vw; /*5個part的寬度*/
+	transition: transform 0.8s linear;
+	transform: translateX(0);
+}
+.horizontal li.part{
+	list-style: none;
+	float: left;
+	width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.part.laboratory{ /*實驗室的背景設定*/
+	position: relative;
+	z-index: 1;
+	background-color: #AFEEEE;
+}
+.part.laboratory:before, .part.laboratory:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 100vw;
+	z-index: -1;
+}
+.part.laboratory:before{
+	top: 0;
+	left: 0;
+	height: 75vh;
+	background-image: repeating-linear-gradient(-90deg, #fff, #fff 2px, transparent 2px, transparent 60px),
+					  repeating-linear-gradient(0deg, #fff, #fff 2px, transparent 2px, transparent 60px);
+}
+.part.laboratory:after{
+	bottom: 0;
+	left: 0;
+	height: 25vh;
+	background-image: repeating-linear-gradient(-40deg, #fff, #fff 2px, transparent 2px, transparent 45px),
+					  repeating-linear-gradient(0deg, #fff, #fff 2px, transparent 2px, transparent 45px);
+}
+.skills-machine{
+	width: 80vw;
+	height: 90vh;
+	background-color: #777;
+	padding: 2vh 1vw 0vh 1vw;
+	margin: 0 auto;
+	box-shadow:1px -2px 0px #555,2px -3px 0px #555,3px -4px 0px #555,4px -5px 0px #555,5px -6px 0px #555,6px -7px 0px #555,7px -8px 0px #555,8px -9px 0px #555,9px -10px 0px #555;
+	position: relative;
+	box-sizing: border-box;
+	top: 5vh;
+}
+.skill-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 3px solid #ccc;
+  color: #fff;
+}
+.skill-list{
+  float: left;
+  width: 78vw; /*total:75vw*/
+  margin-bottom: 2vh;
+  height: 20vh;
+  padding: 1rem;
+  text-align: left;
+  list-style: none;
+  box-sizing: border-box;
+  background-color: #333;
+}
+.skill-level {
+  width: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  overflow: hidden;
+  background-color: #d84f5f;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wider-half{
+	display: inline-block;
+}
+.btn-group .skills-btn{
+	display: none;
+}
+.vertical{
+	width: 100vw;
+}
+.vertical>li.part{
+	width: 100vw;
+    height: 100vh;
+}
+.factory{  /*作品集停放火箭工廠的背景設定*/
+	background-color: #777;
+	background-image: url(images/factory.png);
+	position: relative;
+	z-index: 0;
+}
+.rocket-body-1:before, .rocket-body-2:before, .rocket-top:before, .rocket-bottom:before{ /*before 用於火箭較大的底色主體*/
+	content: "";
+	position: absolute;
+	display: block;
+	width: 70%;
+	left: 15%;
+    background-image: linear-gradient(to right, #dedede 70%,#b8bac6 100%);
+	border: 5px solid #333;
+	border-top: 0px;
+	box-sizing: border-box;
+	z-index: 1;
+}
+.rocket-body-1:before, .rocket-body-2:before{
+	height: 100vh;
+	top: 0;
+}
+.rocket-top:before{
+	height: 65vh;
+	bottom: 0;
+	border-top: 5px solid #333;
+}
+.rocket-bottom:before{
+	height: 85vh; /*75*/
+}
+.rocket-bottom:after{
+	border: 5px solid #333;
+	border-top: 0;
+	height: 10vh !important; /*18*/
+	top: 85vh; /*75*/
+	background-image: repeating-linear-gradient(-90deg, #333 , #333 5px, #777 5px, #777 20px);
+}
+.fire{
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 19vw 20vh 19vw;
+	border-color: transparent transparent #333 transparent;
+}
+.fire.-left{
+	left: 10%;
+}
+.fire.-right{
+	left: 52%;
+}
+.work{
+	position: absolute;
+	bottom: 10%;
+	left: 25%;
+	width: 50vw;
+	height: 50vw;
+	background-color: #fff;
+	border: 5px solid #333;
+	z-index: 3;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.rocket-top:after, .rocket-bottom:after, .rocket-body-1:after, .rocket-body-2:after{
+	content: "";
+	position: absolute;
+	display: block;
+	width: 70%;
+	height: 25vh;
+	left: 15%;
+	box-sizing: border-box;
+}
+.rocket-top:after{  /*火箭頭製作三角形*/
+	top: 0;
+	z-index: 2;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 35vw 35vh 35vw;
+	border-color: transparent transparent rgb(236,32,39) transparent;
+}
+.rocket-body-1:after{
+	top: 0;
+	z-index: 2;
+	background-image: repeating-linear-gradient(-180deg, rgb(236,32,39) , rgb(236,32,39)  20px, transparent 20px, transparent 40px);
+	border-left: 5px solid #333;
+	border-right: 5px solid #333;
+}
+.rocket-body-2:after{
+	border: 5px solid #333;
+	border-top: 0;
+	top: 0;
+	z-index: 2;
+	background-image: repeating-linear-gradient(-90deg, #333 , #333 5px, rgb(236,32,39)  5px, rgb(236,32,39)  20px);
+}
+.work img{
+	width: 100%;
+	height: auto;
+	transition: all 0.3s ease;
+}
+.work-link:hover img {
+  transform: scale(1.2);
+  -webkit-filter: brightness(0.3);
+}
+.rocket-top .info-box{
+	top:
+}
+.rocket-top .info-box, .rocket-bottom .info-box{
+	height: 45vh;
+}
+.rocket-bottom .work{
+	top: 53%;
+}
+.work.-circle{
+	border-radius: 50%;
+}
+.iron{
+	display: none;
+}
+.info-box{
+	width: 80vw;
+	height: 50vh;
+	position: absolute;
+	left: 10vw;
+	top: -50vh;
+	border: 10px solid rgb(89,138,170);
+	background-color: rgb(69,101,128);
+	color: #fff;
+	padding: 1rem;
+	text-align: left;
+	box-sizing:border-box;
+	z-index: 3;
+}
+.rocket-body-2 .info-box{
+	height: 52vh;
+}
+.rocket-body-1 .info-box{
+	height: 48vh;
+}
+.info-box:before, .info-box:after{
+	content: ""; /*產生一個空的元素*/
+	position: absolute; /*利用absolute定位*/
+	display: block;
+	width: 10vw;
+	height: 10vh;
+	background: repeating-linear-gradient(0deg, rgb(89,138,170) , rgb(89,138,170) 5px, rgb(69,101,128)  5px, rgb(69,101,128)  20px);
+	top: calc(-10vh - 10px);
+	box-sizing:border-box;
+	z-index: -1;
+}
+.info-box:before{
+	left: 30vh;
+}
+.info-box:after{
+	right: 30vh;
+}
+.info-move{
+	animation-name: info-move;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes info-move{
+    0% {
+        top: -50vh;
+    }
+    100% {
+        top: 10vh;
+    }
+}
+.info-less-move{
+	animation-name: info-less-move;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes info-less-move{
+    0% {
+        top: -50vh;
+    }
+    100% {
+        top: 5vh;
+    }
+}
+.name{
+	font-size: 4rem;
+	font-weight: bold;
+}
+.info, .skills{
+	font-size: 3.5rem;
+	padding-top: 1rem;
+}
+.info i{
+	display: none;
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: url(images/caution-sign.png) no-repeat;
+	background-size: 1.5rem;
+	margin-right: 2px;
+}
+.skills .icon{
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: url(images/construction-hammer-.png) no-repeat;
+	background-size: 1.5rem;
+	margin-right: 2px;
+}
+.space{
+	background-image: url(images/earth.png), url(images/space.png);
+	background-repeat: no-repeat, repeat-x;
+	background-position: left bottom, left;
+	background-size:50% auto, auto 100%;
+}
+.contact-box{
+	position: absolute;
+	padding-top: 20%;
+	height: 50%;
+	width: 80%;
+	box-sizing: border-box;
+	top: 10px;
+	right: 0;
+	background-image: url(images/moon.png);
+	background-repeat: no-repeat;
+	background-size: 80% auto;
+	background-position: center top;
+}
+.contact-title{
+	font-weight: normal;
+	font-family: 'Pacifico', cursive;
+	font-size: 3.8rem;
+	opacity: 0;
+	transition-delay: 1.4s;
+	transition-property:opacity;
+	transition-duration:1.5s;
+}
+.contact-item{
+	display: inline-block;
+	list-style: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 2rem;
+	padding-left: 1.7rem;
+	background: url(images/gmail.png) no-repeat left center;
+	background-size: 1.5rem;
+	opacity: 0;
+	transition-delay: 1.4s;
+	transition-property:opacity;
+	transition-duration:1.5s;
+}
+.rocket{
+	position: absolute;
+	left: 5vw;
+	bottom: 50px;
+	transform: rotate(30deg) scale(0.1);
+	transform-origin: 50% 100%;
+	z-index: 1;
+}
+.rocket-move{
+	animation-name: rocket-move;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+@keyframes rocket-move{
+	0%{
+		left: 5vw;
+		bottom: 10vw;
+		transform: rotate(30deg) scale(0.1);
+	}
+	100%{
+		left: 25vw;
+		bottom: 44vw;
+		transform: rotate(30deg) scale(1);
+	}
+}

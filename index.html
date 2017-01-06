@@ -2,18 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<title>Ross's Profile</title>
-<<<<<<< ed751836c84f04200fd0f6f3e7521bc632c94cf5
-=======
 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico|Varela+Round" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
->>>>>>> pc-first
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="detect-screen-size.js"></script>
 </head>
 <body>
-	<div>
+	<div class="wider"> <!-- screen width biger than height -->
 		<ul class="vertical">
 			<li class="part space">
 				<img class="rocket" src="images/rocket.png">
@@ -66,8 +63,13 @@
 			<li class="part" id="part-1">
 				<div class="entrance">
 					<div class="border">
-						<div class="door"><h1 class="head -top">Welcome My Profile</h1></div>
-						<div class="door"><h1 class="head -bottom">Welcome My Profile</h1>
+						<div class="door">
+							<h1 class="head -wider-top">Welcome To My Profile</h1>
+							<h1 class="head -higher-top">Welcome To</h1>
+						</div>
+						<div class="door">
+							<h1 class="head -wider-bottom">Welcome To My Profile</h1>
+							<h1 class="head -higher-bottom">My Profile</h1>
 							<p class="tip">Scroll the mouse wheel</p>
 						</div>
 					</div>
@@ -77,7 +79,8 @@
 						<div class="boy">
 						</div>
 						<div class="box">
-							<h1>你好，我叫羅弘智<br />自學前端技術一年多的時間<br />希望成為一名前端工程師<br/ >目前是正在求職的役畢新鮮人</h1>
+							<h1 class="wider-intro">你好，我叫羅弘智<br />自學前端技術一年多的時間<br />希望成為一名前端工程師<br />目前是正在求職的役畢新鮮人</h1>
+							<h1 class="higher-intro">你好，我叫羅弘智<br />自學前端技術一年多的時間，希望成為一名前端工程師，目前是正在求職的役畢新鮮人</h1>
 						</div>
 					</li>
 					<li class="part laboratory" id="part-skills">
@@ -90,23 +93,23 @@
 								</ul>
 								<ul class="skill-list">
 									<li class="skill-title">CSS</li>
-									<li class="skill-level" data-level="75">CSS3</li>
-									<li class="skill-level" data-level="75">SCSS</li>
-									<li class="skill-level" data-level="50">Bootstrap 3</li>
-									<li class="skill-level" data-level="50">RWD</li>
+									<li class="skill-level wider-half" data-level="75">CSS3</li>
+									<li class="skill-level wider-half" data-level="75">SCSS</li>
+									<li class="skill-level wider-half" data-level="50">Bootstrap 3</li>
+									<li class="skill-level wider-half" data-level="50">RWD</li>
 								</ul>
 								<ul class="skill-list">
 									<li class="skill-title">JavaScript</li>
-									<li class="skill-level" data-level="75">jQuery</li>
-									<li class="skill-level" data-level="70">Native JavaScript</li>
-									<li class="skill-level" data-level="50">AJAX</li>
-									<li class="skill-level" data-level="35">ReactJS</li>
+									<li class="skill-level wider-half" data-level="75">jQuery</li>
+									<li class="skill-level wider-half" data-level="70">Native JavaScript</li>
+									<li class="skill-level wider-half" data-level="50">AJAX</li>
+									<li class="skill-level wider-half" data-level="35">ReactJS</li>
 								</ul>
 								<ul class="skill-list">
 									<li class="skill-title">Others</li>
-									<li class="skill-level" data-level="40">PHP</li>
-									<li class="skill-level" data-level="40">MySQL</li>
-									<li class="skill-level" data-level="25">Git</li>
+									<li class="skill-level wider-half" data-level="40">PHP</li>
+									<li class="skill-level wider-half" data-level="40">MySQL</li>
+									<li class="skill-level wider-half" data-level="25">Git</li>
 								</ul>
 							</div>
 							<ul class="btn-group">

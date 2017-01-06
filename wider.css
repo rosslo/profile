@@ -8,7 +8,7 @@
 }
 html{
 	width: 100vw;
-	overflow-x: hidden;
+	overflow: -moz-scrollbars-none;
 }
 .part{
 	height: 100vh;
@@ -109,14 +109,17 @@ html{
 		opacity: 0;
 	}
 	100%{
-		opacity: ;
+		opacity: 1;
 	}
 }
-.head.-top{
+.head.-wider-top{
 	bottom: -0.6em;
 }
-.head.-bottom{
+.head.-wider-bottom{
 	top: -0.7em;
+}
+.head.-higher-top, .head.-higher-bottom{
+	display: none;
 }
 #part-2{
 	opacity:0;
@@ -165,6 +168,9 @@ html{
 .box h1{
 	line-height: 2em;
 }
+.higher-intro{
+	display: none;
+}
 .box{
 	width: 40vw;
 	height: 70vh;
@@ -174,7 +180,7 @@ html{
 	border: 10px solid #777;
 	background-color: #444;
 	color: #fff;
-	padding: 40px;
+	padding: 1em;
 	text-align: left;
 	box-sizing:border-box;
 }
@@ -267,7 +273,7 @@ html{
 	top: 5vh;
 }
 .skill-title {
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
   border-bottom: 3px solid #ccc;
   color: #fff;
@@ -383,8 +389,6 @@ html{
 .rocket-body-2:after{
 	border: 5px solid #333;
 	border-top: 0;
-/*  border-bottom-left-radius: 50% 30px;
-  border-bottom-right-radius: 50% 30px;*/
 	top: 0;
 	z-index: 2;
 	background-image: repeating-linear-gradient(-90deg, #333 , #333 5px, rgb(236,32,39)  5px, rgb(236,32,39)  20px);
@@ -404,7 +408,7 @@ html{
 }
 .contact-box{
 	position: absolute;
-	padding-top: 35vh;
+	padding-top: 33vh;
 	height: 100%;
 	width: 50%;
 	box-sizing: border-box;
@@ -420,7 +424,7 @@ html{
 	font-family: 'Pacifico', cursive;
 	font-size: 3.8em;
 	opacity: 0;
-	transition-delay: 1.5s;
+	transition-delay: 1.4s;
 	transition-property:opacity;
 	transition-duration:1.5s;
 }
@@ -428,12 +432,13 @@ html{
 	display: inline-block;
 	list-style: none;
 	font-size: 1.5em;
+	font-weight: bold;
 	line-height: 2em;
-	padding-left: 1.6em;
+	padding-left: 1.7em;
 	background: url(images/gmail.png) no-repeat left center;
 	background-size: 1.5em;
 	opacity: 0;
-	transition-delay: 1.5s;
+	transition-delay: 1.4s;
 	transition-property:opacity;
 	transition-duration:1.5s;
 }
