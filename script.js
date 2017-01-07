@@ -1,19 +1,20 @@
 $(document).ready(function(){
 var startY = $('#part-1').offset().top; /*#part-1  .rocket-body-2'*/
 $('html, body').animate({scrollTop: startY},1);
-//wheelRight();
 var opendoor=false; //用來判斷是否以滾動過執行opendoor();
 var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
-if(window.screen.availHeight>window.screen.availWidth){
+var ismobile = detectmob();
+if(ismobile){
 	$("body").on("swiperight",wheelRight(-1));
 	$("body").on("swipeleft",wheelRight(1));
+}else{
+	$("body").mousewheel(function(event, delta) {
+		wheelRight(delta);
+		event.preventDefault();
+	    return false;
+	});
 }
-$("body").mousewheel(function(event, delta) {
-	wheelRight(delta);
-	event.preventDefault();
-    return false;
-});
 function wheelRight(delta){
    //$("body").mousewheel(function(event, delta) {
      //this.scrollLeft -= (delta * 50);
@@ -110,5 +111,13 @@ function showSkills(){
 		$(this).animate({width:level+"%"},800);
 		$(this).css("padding-left","5px");
 	});
+}
+function detectmob() {
+ if( navigator.userAgent.match(/Android/i)|| navigator.userAgent.match(/webOS/i)|| navigator.userAgent.match(/iPhone/i)|| navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPod/i)|| navigator.userAgent.match(/BlackBerry/i)|| navigator.userAgent.match(/Windows Phone/i)){
+    return true;
+  }
+ else {
+    return false;
+  }
 }
 });

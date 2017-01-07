@@ -11,6 +11,10 @@ html{
 	width: 100vw;
 	overflow: -moz-scrollbars-none;
 }
+body{
+	width: 100vw;
+	overflow: hidden;
+}
 .part{
 	height: 100vh;
 	width: 100vw;
