@@ -6,8 +6,8 @@ var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
 var ismobile = detectmob();
 if(ismobile){
-	$("body").on("swiperight",wheelRight(-1));
-	$("body").on("swipeleft",wheelRight(1));
+	$("body").on("swiperight",function(){wheelRight(-1);});
+	$("body").on("swipeleft",function(){wheelRight(1);});
 }else{
 	$("body").mousewheel(function(event, delta) {
 		wheelRight(delta);
@@ -16,7 +16,6 @@ if(ismobile){
 	});
 }
 function wheelRight(delta){
-   //$("body").mousewheel(function(event, delta) {
      //this.scrollLeft -= (delta * 50);
      if(!opendoor){openDoor();}
      else{
@@ -66,7 +65,6 @@ function wheelRight(delta){
 			});
 		}
       }
- //  });
 }
 function openDoor(){
 	var border = document.getElementsByClassName('border');
