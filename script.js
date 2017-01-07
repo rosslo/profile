@@ -6,9 +6,20 @@ var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
 var ismobile = detectmob();
 if(ismobile){
-	$("body").on("swiperight",function(){wheelRight(-1);});
-	$("body").on("swipeleft",function(){wheelRight(1);});
+	$("body").swipe( {
+        //Generic swipe handler for all directions
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        	if(direction==="left"){
+        		wheelRight(-1);
+        	}else if(direction==="right"){
+        		wheelRight(1);
+        	}
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+         threshold:0
+      });
 }else{
+	alert('web');
 	$("body").mousewheel(function(event, delta) {
 		wheelRight(delta);
 		event.preventDefault();
