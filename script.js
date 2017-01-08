@@ -82,7 +82,11 @@ function wheelRight(delta){
 				animated=true;
 				infoMove();
 				if(Y===0){
-					$('.rocket').css({"left":($('body').width()/20).toString()+'px',"bottom":($('body').width()/10*3).toString()+'px',"transform":"rotate(45deg) scale(1)","-webkit-transform":"rotate(45deg) scale(1)","-moz-transform":"rotate(45deg) scale(1)","-o-transform":"rotate(45deg) scale(1)"});
+					if(ismobile){
+						$('.rocket').css({"left":($('body').width()/20).toString()+'px',"bottom":($('body').width()/10*3).toString()+'px',"transform":"rotate(45deg) scale(1)","-webkit-transform":"rotate(45deg) scale(1)","-moz-transform":"rotate(45deg) scale(1)","-o-transform":"rotate(45deg) scale(1)"});
+					}else{
+						$('.rocket').addClass('rocket-move');
+					}
 					$('.contact-item, .contact-title').css("opacity","1");
 				}
 			});
@@ -133,8 +137,10 @@ function showSkills(){
 	// }
 }
 function vhFix(){
+	var sum=$('.skill-list').eq(3).offset().top + $('.skill-list').eq(3).height()-$('.skills-machine').offset().top+parseInt($('.skill-list').eq(0).css('margin-bottom'))*3;
+	var radiatorH = $('.skills-machine').height()-sum;
 	$('.fire').css('border-width','0 '+($('body').width()/100*19).toString()+'px '+($(window).height()/5).toString()+'px');
-	$('head').append("<style>.info-box:before, .info-box:after{ height:"+($(window).height()/10).toString()+"px }.info-box:before, .info-box:after{ top:"+(-$(window).height()/10-10).toString()+"px }.rocket-top:after{ border-width:0 "+($('body').width()/100*35).toString()+"px "+($(window).height()/100*35).toString()+"px}</style>");
+	$('head').append("<style>.radiator-box,.radiator-box:before{height:"+radiatorH+"px} .info-box:before, .info-box:after{ height:"+($(window).height()/10).toString()+"px }.info-box:before, .info-box:after{ top:"+(-$(window).height()/10-10).toString()+"px }.rocket-top:after{ border-width:0 "+($('body').width()/100*35).toString()+"px "+($(window).height()/100*35).toString()+"px}</style>");
 	$('.rocket').css('left',(-$('body').width()/4).toString()+'px');
 }
 function detectmob() {

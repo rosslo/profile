@@ -456,6 +456,7 @@ body{
     -webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	top: 5%;
+	overflow: hidden;
 }
 .skill-title {
   font-size: 1.5rem;
@@ -464,10 +465,9 @@ body{
   color: #fff;
 }
 .skill-list{
-  float: left;
-  width: 97.5%; /*total:75vw*/
+  display: inline-block;
+  width: 97.5%;
   margin-bottom: 2.22%;
-  height: 22.22%;
   padding: 1rem;
   text-align: left;
   list-style: none;
@@ -478,12 +478,9 @@ body{
 }
 .skill-level {
   width: 0;
- padding-left:5px;
-  padding-right:5px;
-  margin-top: 4px;
-  margin-right: 4px;
+  margin-top: 1rem;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2rem;
   height: 2rem;
   line-height: 2rem;
   overflow: hidden;
@@ -492,10 +489,19 @@ body{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/*.wider-half{
+.radiator-box{
 	display: inline-block;
-}*/
-.btn-group .skills-btn{
+	background-color: #333;
+	width: 97.5%;
+}
+.radiator-box:before{
+	content: "";
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	background-image: repeating-linear-gradient(0deg, transparent, transparent 12%, #777 12%, #777 15%);
+}
+.radiator-box .radiator{
 	display: none;
 }
 .wider{
@@ -506,6 +512,7 @@ body{
 	display: block;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 .vertical>li.part{
 	width: 100%;
@@ -797,12 +804,12 @@ body{
 .contact-item{
 	display: inline-block;
 	list-style: none;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	font-weight: bold;
-	line-height: 2rem;
-	padding-left: 1.7rem;
+	line-height: 2.2rem;
+	padding-left: 2rem;
 	background: url(images/gmail.png) no-repeat left center;
-	background-size: 1.5rem;
+	background-size: 1.7rem;
 	opacity: 0;
 	transition:opacity 1.5s 1.4s;
 	-webkit-transition:opacity 1.5s 1.4s;
@@ -826,57 +833,8 @@ body{
 	-moz-transition: all 1500ms linear;
 	-o-transition: all 1500ms linear;
 }
-.rocket-move{
-	-webkit-animation: rocket-move 1500ms ease-in;
-    -webkit-animation-fill-mode: forwards;
-    animation: rocket-move 1500ms ease-in;
-    animation-fill-mode: forwards;
-}
-@keyframes rocket-move{
-	0%{
-		left: -25vw;
-		bottom: 0;
-		transform: rotate(45deg) scale(0.1);
-	}
-	100%{
-		left: 5vw;
-		bottom: 30vw;
-		transform: rotate(45deg) scale(1);
-	}
-}
-@-webkit-keyframes rocket-move{
-	0%{
-		left: -25vw;
-		bottom: 0;
-		-webkit-transform: rotate(45deg) scale(0.1);
-	}
-	100%{
-		left: 5vw;
-		bottom: 30vw;
-		-webkit-transform: rotate(45deg) scale(1);
-	}
-}
-@-moz-keyframes rocket-move{
-	0%{
-		left: -25vw;
-		bottom: 0;
-		-moz-transform: rotate(45deg) scale(0.1);
-	}
-	100%{
-		left: 5vw;
-		bottom: 30vw;
-		-moz-transform: rotate(45deg) scale(1);
-	}
-}
-@-o-keyframes rocket-move{
-	0%{
-		left: -25vw;
-		bottom: 0;
-		-o-transform: rotate(45deg) scale(0.1);
-	}
-	100%{
-		left: 5vw;
-		bottom: 30vw;
-		-o-transform: rotate(45deg) scale(1);
+@media screen and (min-width: 480px) {
+	html{
+		font-size: 15px;
 	}
 }

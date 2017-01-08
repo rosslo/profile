@@ -314,21 +314,18 @@ body{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.btn-group .skills-btn{
+.radiator{
 	float: left;
 	list-style: none;
 	margin-right: 0.5vw;
 	margin-top: 3vh;
 	width: 19.1vw;
 	height: 25vh;
-	background-color: #333;
 	box-sizing: border-box;
-}
-#skill-4{
 	border: 5px solid #333;
 	background-color: #333;
 }
-#skill-4:before{
+.radiator:before{
 	content: "";
 	display: block;
 	width: 90%;
