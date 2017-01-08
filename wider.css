@@ -127,9 +127,10 @@ body{
 }
 #part-2{
 	opacity:0;
-	transition-delay: 2.3s;
-	transition-property:opacity;
-	transition-duration:1.7s;
+	transition: opacity 1.7s 2.3s;
+	-webkit-transition: opacity 1.7s 2.3s;
+	-moz-transition: opacity 1.7s 2.3s;
+	-o-transition: opacity 1.7s 2.3s;
 }
 .boy{
 	position: absolute;
@@ -228,8 +229,15 @@ body{
 	position: absolute;
 	top: 400%;
 	left: 0;
-	width: 600vw; /*5個part的寬度*/
+	width: 300vw; /*5個part的寬度*/
+	-webkit-transition: -webkit-transform 1.2s linear;
+	-moz-transition: -moz-transform 1.2s linear;
+	-o-transition: -o-transform 1.2s linear;
 	transition: transform 1.2s linear;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-o-transform: translateX(0);
+	-ms-transform: translateX(0);
 	transform: translateX(0);
 }
 .horizontal li.part{

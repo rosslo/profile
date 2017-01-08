@@ -1,4 +1,12 @@
-$(document).ready(function(){
+$(window).load(function(){
+var loaded = false;
+var checkCssLoad = setInterval(function(){
+	if($('#part-2').css('opacity')==='0'){
+		$('.loader').hide(0,function(){
+			loaded=true;
+		});
+	}
+},50);
 var startY = $('#part-1').offset().top; /*#part-1  .rocket-body-2'*/
 $('html, body').animate({scrollTop: startY},1);
 var opendoor=false; //用來判斷是否以滾動過執行opendoor();
@@ -6,7 +14,8 @@ var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
 var ismobile = detectmob();
 if(ismobile){
-	$("body").swipe( {
+	$('.tip.-pc').hide();
+	$("body, .work").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
         	if(direction==="left"){
@@ -19,7 +28,7 @@ if(ismobile){
          threshold:0
       });
 }else{
-	alert('web');
+	$('.tip.-mobile').hide();
 	$("body").mousewheel(function(event, delta) {
 		wheelRight(delta);
 		event.preventDefault();
@@ -28,6 +37,7 @@ if(ismobile){
 }
 function wheelRight(delta){
      //this.scrollLeft -= (delta * 50);
+    if(loaded){
      if(!opendoor){openDoor();}
      else{
 	    var horizontalNum = $(".horizontal>li").length; //水平的part數量
@@ -76,6 +86,7 @@ function wheelRight(delta){
 			});
 		}
       }
+      }
 }
 function openDoor(){
 	var border = document.getElementsByClassName('border');
@@ -89,7 +100,7 @@ function openDoor(){
 	part2.style.opacity="1";
 	setTimeout(function(){
 		$('.entrance').css("display","none");
-		 $('.box').addClass('box-remove');
+		$('.box').addClass('box-remove');
 	}, 3000);
 	setTimeout(function(){
 		opendoor=true;
