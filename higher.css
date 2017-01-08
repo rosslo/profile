@@ -807,9 +807,9 @@ body{
 	font-size: 2rem;
 	font-weight: bold;
 	line-height: 2.2rem;
-	padding-left: 2rem;
+	padding-left: 2.2rem;
 	background: url(images/gmail.png) no-repeat left center;
-	background-size: 1.7rem;
+	background-size: 2rem;
 	opacity: 0;
 	transition:opacity 1.5s 1.4s;
 	-webkit-transition:opacity 1.5s 1.4s;

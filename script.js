@@ -14,7 +14,7 @@ var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
 var ismobile = detectmob();
 if(ismobile){
-	vhFix();
+	var vhFixed = vhFix();
 	$('.tip.-web').hide();
 	$("body, .work, .work-link").swipe( {
         //Generic swipe handler for all directions
@@ -30,6 +30,7 @@ if(ismobile){
 	    threshold:1
       });
 }else{
+	var vhFixed = true;
 	$('.tip.-mobile').hide();
 	$("body").mousewheel(function(event, delta) {
 		wheelRight(delta);
@@ -39,7 +40,7 @@ if(ismobile){
 }
 function wheelRight(delta){
      //this.scrollLeft -= (delta * 50);
-    if(loaded){
+    if(loaded&&vhFixed){
      if(!opendoor){openDoor();}
      else{
 	    var horizontalNum = $(".horizontal>li").length; //水平的part數量
@@ -142,7 +143,8 @@ function vhFix(){
 	var radiatorH = $('.skills-machine').height()-sum;
 	$('.fire').css('border-width','0 '+($('body').width()/100*19).toString()+'px '+($(window).height()/5).toString()+'px');
 	$('head').append("<style>.radiator-box,.radiator-box:before{height:"+radiatorH+"px} .info-box:before, .info-box:after{ height:"+($(window).height()/10).toString()+"px }.info-box:before, .info-box:after{ top:"+(-$(window).height()/10-10).toString()+"px }.rocket-top:after{ border-width:0 "+($('body').width()/100*35).toString()+"px "+($(window).height()/100*35).toString()+"px}</style>");
-	$('.rocket').css('left',(-$('body').width()/4).toString()+'px');
+	$('.rocket').css('left',("-"+$('body').width()/4).toString()+'px');
+	return true;
 }
 function detectmob() {
  if( navigator.userAgent.match(/Android/i)|| navigator.userAgent.match(/webOS/i)|| navigator.userAgent.match(/iPhone/i)|| navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPod/i)|| navigator.userAgent.match(/BlackBerry/i)|| navigator.userAgent.match(/Windows Phone/i)){
