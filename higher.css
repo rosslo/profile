@@ -477,7 +477,7 @@ body{
   background-color: #333;
 }
 .skill-level {
- /* width: 0;*/
+  width: 0;
  padding-left:5px;
   padding-right:5px;
   margin-top: 4px;
@@ -492,9 +492,9 @@ body{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.wider-half{
+/*.wider-half{
 	display: inline-block;
-}
+}*/
 .btn-group .skills-btn{
 	display: none;
 }
@@ -596,7 +596,7 @@ body{
 	width: 0;
 	height: 0;
 	border-style: solid;
-	border-width: 0 35% 35% 35%;
+/*	border-width: 0 35% 35% 35%;*/
 	border-color: transparent transparent rgb(236,32,39) transparent;
 }
 .rocket-body-1:after{
@@ -811,7 +811,6 @@ body{
 }
 .rocket{
 	position: absolute;
-	left: -25vw;
 	bottom: 0;
 	transform: rotate(45deg) scale(0.1);
 	-webkit-transform: rotate(45deg) scale(0.1);
@@ -822,6 +821,10 @@ body{
 	-moz-transform-origin: 50% 100%;
 	-o-transform-origin: 50% 100%;
 	z-index: 1;
+	transition: all 1500ms linear;
+	-webkit-transition: all 1500ms linear;
+	-moz-transition: all 1500ms linear;
+	-o-transition: all 1500ms linear;
 }
 .rocket-move{
 	-webkit-animation: rocket-move 1500ms ease-in;

@@ -16,7 +16,7 @@ var ismobile = detectmob();
 if(ismobile){
 	vhFix();
 	$('.tip.-web').hide();
-	$("body, .work").swipe( {
+	$("body, .work, .work img").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
         	if(direction==="left"){
@@ -82,7 +82,7 @@ function wheelRight(delta){
 				animated=true;
 				infoMove();
 				if(Y===0){
-					$('.rocket').addClass('rocket-move');
+					$('.rocket').css({"left":($('body').width()/20).toString()+'px',"bottom":($('body').width()/10*3).toString()+'px',"transform":"rotate(45deg) scale(1)","-webkit-transform":"rotate(45deg) scale(1)","-moz-transform":"rotate(45deg) scale(1)","-o-transform":"rotate(45deg) scale(1)"});
 					$('.contact-item, .contact-title').css("opacity","1");
 				}
 			});
@@ -124,18 +124,18 @@ function infoMove(){
 	}
 }
 function showSkills(){
-	if(window.screen.availHeight<window.screen.availWidth){
+	// if(window.screen.availHeight<window.screen.availWidth){
 		$('.skill-level').each(function(){
 			var level = $(this).attr('data-level');
 			$(this).animate({width:level+"%"},800);
 			$(this).css("padding-left","5px");
 		});
-	}
+	// }
 }
 function vhFix(){
-	$('.fire').css('border-width','0 '+$('body').width()/100*19+" "+$(window).height()/5+" "+$('body').width()/100*19);
-	$('.info-box:before, .info-box:after').css('height',$(window).height()/10);
-	$('.info-box:before, .info-box:after').css('top',"calc(-"+$(window).height()/10+" - 10px)");
+	$('.fire').css('border-width','0 '+($('body').width()/100*19).toString()+'px '+($(window).height()/5).toString()+'px');
+	$('head').append("<style>.info-box:before, .info-box:after{ height:"+($(window).height()/10).toString()+"px }.info-box:before, .info-box:after{ top:"+(-$(window).height()/10-10).toString()+"px }.rocket-top:after{ border-width:0 "+($('body').width()/100*35).toString()+"px "+($(window).height()/100*35).toString()+"px}</style>");
+	$('.rocket').css('left',(-$('body').width()/4).toString()+'px');
 }
 function detectmob() {
  if( navigator.userAgent.match(/Android/i)|| navigator.userAgent.match(/webOS/i)|| navigator.userAgent.match(/iPhone/i)|| navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPod/i)|| navigator.userAgent.match(/BlackBerry/i)|| navigator.userAgent.match(/Windows Phone/i)){
