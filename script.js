@@ -7,13 +7,14 @@ var checkCssLoad = setInterval(function(){
 		});
 	}
 },50);
-var startY = $('#part-1').offset().top; /*#part-1  .rocket-body-2'*/
+var startY = $(window).height()*4; /*#part-1  .rocket-body-2'*/
 $('html, body').animate({scrollTop: startY},1);
 var opendoor=false; //用來判斷是否以滾動過執行opendoor();
 var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
 var ismobile = detectmob();
 if(ismobile){
+	vhFix();
 	$('.tip.-web').hide();
 	$("body, .work").swipe( {
         //Generic swipe handler for all directions
@@ -73,7 +74,8 @@ function wheelRight(delta){
 				Y+=vh100;
 			}else if(delta===1 && (Math.abs(cur)/vw100===horizontalNum-1)){  //1往上一頁 && 已經在水平part的最後一個
 		    	scrollRight=true;
-		    	console.log('you want left');
+		    	X=cur+vw100;
+		    	$('.horizontal').css('transform','translateX('+X+'px)');
 		    }
 			animated=false;
 			$('html,body').animate({scrollTop: Y}, 800, function(){
@@ -129,6 +131,11 @@ function showSkills(){
 			$(this).css("padding-left","5px");
 		});
 	}
+}
+function vhFix(){
+	$('.fire').css('border-width','0 '+$('body').width()/100*19+" "+$(window).height()/5+" "+$('body').width()/100*19);
+	$('.info-box:before, .info-box:after').css('height',$(window).height()/10);
+	$('.info-box:before, .info-box:after').css('top',"calc(-"+$(window).height()/10+" - 10px)");
 }
 function detectmob() {
  if( navigator.userAgent.match(/Android/i)|| navigator.userAgent.match(/webOS/i)|| navigator.userAgent.match(/iPhone/i)|| navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPod/i)|| navigator.userAgent.match(/BlackBerry/i)|| navigator.userAgent.match(/Windows Phone/i)){
