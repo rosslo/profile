@@ -14,7 +14,7 @@ var animated = true; //用來避免animate執行scroll的延遲
 var scrollRight = true; //scrollRight=true=>right, false=>down;
 var ismobile = detectmob();
 if(ismobile){
-	$('.tip.-pc').hide();
+	$('.tip.-web').hide();
 	$("body, .work").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
@@ -122,15 +122,13 @@ function infoMove(){
 	}
 }
 function showSkills(){
-	$('.skill-level').each(function(){
-		var level = $(this).attr('data-level');
-		if(window.screen.availHeight>window.screen.availWidth){
-			level = level / 2;
-			$(this).css("margin-right",50-level+"%");
-		}
-		$(this).animate({width:level+"%"},800);
-		$(this).css("padding-left","5px");
-	});
+	if(window.screen.availHeight<window.screen.availWidth){
+		$('.skill-level').each(function(){
+			var level = $(this).attr('data-level');
+			$(this).animate({width:level+"%"},800);
+			$(this).css("padding-left","5px");
+		});
+	}
 }
 function detectmob() {
  if( navigator.userAgent.match(/Android/i)|| navigator.userAgent.match(/webOS/i)|| navigator.userAgent.match(/iPhone/i)|| navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPod/i)|| navigator.userAgent.match(/BlackBerry/i)|| navigator.userAgent.match(/Windows Phone/i)){
