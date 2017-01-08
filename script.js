@@ -16,7 +16,7 @@ var ismobile = detectmob();
 if(ismobile){
 	vhFix();
 	$('.tip.-web').hide();
-	$("body, .work, .work img").swipe( {
+	$("body, .work, .work-link").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
         	if(direction==="left"){
@@ -26,7 +26,8 @@ if(ismobile){
         	}
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
-         threshold:0
+        excludedElements: "label, button, input, select, textarea, .noSwipe",
+	    threshold:1
       });
 }else{
 	$('.tip.-mobile').hide();
