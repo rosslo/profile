@@ -3,14 +3,10 @@
     margin: 0;
     font-family: 'Varela Round', Microsoft JhengHei,sans-serif;
 }
-::-webkit-scrollbar {
-    display: none;
-}
 html{
 	font-size: 5px;
 	width: 100%;
 	height: 500%;
-	overflow: -moz-scrollbars-none;
 }
 body{
 	width: 100%;
@@ -24,25 +20,17 @@ body{
 	overflow: hidden;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
-#part-1{
-	width: 300%;
-	height: 20%;
-	background-color: #888;
-	overflow: hidden;
 }
 .entrance{
-	width: 100%;
-	height: 100%;
+	background-color: #888;
+	overflow: hidden;
 	transition: transform 4s ease-in-out;
 	-webkit-transition: -webkit-transform 4s ease-in-out;
 	-moz-transition: -moz-transform 4s ease-in-out;
 	-o-transition: -o-transform 4s ease-in-out;
 	position: absolute;
-	top: 400%;
+	top: 0;
 	left: 0;
-	background-color: #888;
 }
 .entrance:before, .entrance:after{
 	content: ""; /*產生一個空的元素*/
@@ -351,7 +339,7 @@ body{
 	display: block;
 	width: 40px;
 	height: 40%;
-	top: calc(-40% - 10px);
+	top: calc(-40% - 20px);
 	left: calc(50% - 20px);
 	background-image: repeating-linear-gradient(0deg, #777, #777 2px, #444 2px, #444 15px);
 }
@@ -395,19 +383,14 @@ body{
 }
 .horizontal{
 	position: absolute;
-	top: 400%;
+	top: 0;
 	left: 0;
 	width: 300%; /*5個part的寬度*/
 	height: 100%;
 	-webkit-transition: -webkit-transform 0.8s linear;
-	-moz-transition: -moz-transform 0.8s linear;
-	-o-transition: -o-transform 0.8s linear;
 	transition: transform 0.8s linear;
-	-webkit-transform: translateX(0);
-	-moz-transform: translateX(0);
-	-o-transform: translateX(0);
-	-ms-transform: translateX(0);
-	transform: translateX(0);
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 .horizontal li.part{
 	list-style: none;
@@ -416,7 +399,6 @@ body{
     height: 100%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 }
 .part.laboratory{ /*實驗室的背景設定*/
 	position: relative;
@@ -454,7 +436,6 @@ body{
 	position: relative;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	top: 5%;
 	overflow: hidden;
 }
@@ -473,7 +454,6 @@ body{
   list-style: none;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   background-color: #333;
 }
 .skill-level {
@@ -504,19 +484,20 @@ body{
 .radiator-box .radiator{
 	display: none;
 }
-.wider{
-	width: 100%;
-	height: 100%;
-}
 .vertical{
-	display: block;
 	width: 100%;
-	height: 100%;
-	overflow: hidden;
+	height: 400%;
+	position: absolute;
+	left: 0;
+	-webkit-transition: -webkit-transform 0.8s linear;
+	transition: transform 0.8s linear;
+	-webkit-transform: translate3d(0,-100%,0);
+	transform: translate3d(0,-100%,0);
+	z-index: -1;
 }
 .vertical>li.part{
 	width: 100%;
-    height: 20%;
+    height: 25%;
 }
 .factory{  /*作品集停放火箭工廠的背景設定*/
 	background-color: #777;
@@ -535,7 +516,6 @@ body{
 	border-top: 0px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	z-index: 1;
 }
 .rocket-body-1:before, .rocket-body-2:before{
@@ -563,7 +543,6 @@ body{
 	width: 0;
 	height: 0;
 	border-style: solid;
-/*	border-width: 0 19vw 20vh 19vw;*/
 	border-color: transparent transparent #333 transparent;
 }
 .fire.-left{
@@ -583,7 +562,6 @@ body{
 	z-index: 3;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	overflow: hidden;
 }
 .rocket-top:after, .rocket-bottom:after, .rocket-body-1:after, .rocket-body-2:after{
@@ -595,7 +573,6 @@ body{
 	left: 15%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 }
 .rocket-top:after{  /*火箭頭製作三角形*/
 	top: 0;
@@ -645,7 +622,6 @@ body{
 	text-align: left;
 	box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	z-index: 3;
 }
 .info-box:before, .info-box:after{
@@ -653,12 +629,9 @@ body{
 	position: absolute; /*利用absolute定位*/
 	display: block;
 	width: 12.5%;
-/*	height: 10vh;*/
 	background: repeating-linear-gradient(0deg, rgb(89,138,170) , rgb(89,138,170) 5px, rgb(69,101,128)  5px, rgb(69,101,128)  20px);
-/*	top: calc(-10vh - 10px);*/
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	z-index: -1;
 }
 .info-box:before{
@@ -769,8 +742,7 @@ body{
 	margin-right: 2px;
 }
 .space{
-	width: 100%;
-	height: 100%;
+	position: relative;
 	background-image: url(images/earth.png), url(images/space.png);
 	background-repeat: no-repeat, repeat-x;
 	background-position: left bottom, left;
@@ -783,7 +755,6 @@ body{
 	width: 80%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	top: 10px;
 	right: 0;
 	background-image: url(images/moon.png);
@@ -798,8 +769,6 @@ body{
 	opacity: 0;
 	transition:opacity 1.5s 1.4s;
 	-webkit-transition:opacity 1.5s 1.4s;
-	-moz-transition:opacity 1.5s 1.4s;
-	-o-transition:opacity 1.5s 1.4s;
 }
 .contact-item{
 	display: inline-block;
@@ -813,25 +782,17 @@ body{
 	opacity: 0;
 	transition:opacity 1.5s 1.4s;
 	-webkit-transition:opacity 1.5s 1.4s;
-	-moz-transition:opacity 1.5s 1.4s;
-	-o-transition:opacity 1.5s 1.4s;
 }
 .rocket{
 	position: absolute;
 	bottom: 0;
 	transform: rotate(45deg) scale(0.1);
 	-webkit-transform: rotate(45deg) scale(0.1);
-	-moz-transform: rotate(45deg) scale(0.1);
-	-o-transform: rotate(45deg) scale(0.1);
 	transform-origin: 50% 100%;
 	-webkit-transform-origin: 50% 100%;
-	-moz-transform-origin: 50% 100%;
-	-o-transform-origin: 50% 100%;
 	z-index: 1;
 	transition: all 1500ms linear;
 	-webkit-transition: all 1500ms linear;
-	-moz-transition: all 1500ms linear;
-	-o-transition: all 1500ms linear;
 }
 @media screen and (min-width: 480px) {
 	html{
